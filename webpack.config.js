@@ -1,5 +1,9 @@
 import path from "node:path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import dotenv from "dotenv";
+import webpack from "webpack";
+
+dotenv.config();
 
 export default {
   mode: "development",
@@ -16,6 +20,11 @@ export default {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/template.html",
+    }),
+    new webpack.DefinePlugin({
+      "process.env.WEATHER_API_KEY": JSON.stringify(
+        process.env.WEATHER_API_KEY,
+      ),
     }),
   ],
   module: {
