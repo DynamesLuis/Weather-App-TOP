@@ -1,3 +1,5 @@
+import { setUserWeather } from "../appState/appState";
+
 const API_KEY = process.env.WEATHER_API_KEY;
 
 async function fetchData(city) {
@@ -19,6 +21,8 @@ async function fetchDataByLongAndLat(latitude, longitude) {
     );
     const data = await response.json();
     console.log(data);
+    
+    setUserWeather(data);    
   } catch (error) {
     console.log(error);
   }
