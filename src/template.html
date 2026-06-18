@@ -8,7 +8,7 @@
   <body>
     <header>
       <h1>Weather App</h1>
-      <form>
+      <form class="form">
         <button type="submit">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -53,31 +53,16 @@
     <main>
       <section class="search-heading">
         <div class="place-container">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="icon icon-tabler icons-tabler-outline icon-tabler-sun"
-          >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
-            <path
-              d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"
-            />
-          </svg>
-          <p class="place-temp">13°</p>
-          <p class="place-city">Berlín, Alemania</p>
+          <div class="place-icon-container"></div>
+
+          <p class="place-temp"><span></span> F°</p>
+          <p class="place-city">-- --</p>
         </div>
 
         <div class="time-container">
+          <p class="time-title">Latest forecast</p>
           <p class="time-hour">7:00 PM</p>
-          <p class="time-moment">Sunset time, Monday</p>
+          <p class="time-moment"></p>
         </div>
       </section>
       <section class="weather-info">
@@ -99,7 +84,7 @@
           </div>
           <div class="info-p-container">
             <p class="title-p">Sunrise</p>
-            <p class="info-p">6:35 AM</p>
+            <p class="info-p"><span data-property="sunrise"></span> AM</p>
           </div>
         </div>
         <div class="info-container">
@@ -120,7 +105,7 @@
           </div>
           <div class="info-p-container">
             <p class="title-p">Sunset</p>
-            <p class="info-p">7:00 PM</p>
+            <p class="info-p"><span data-property="sunset"></span> PM</p>
           </div>
         </div>
         <div class="info-container">
@@ -141,7 +126,7 @@
           </div>
           <div class="info-p-container">
             <p class="title-p">Humidity</p>
-            <p class="info-p">80%</p>
+            <p class="info-p"><span data-property="humidity"></span>%</p>
           </div>
         </div>
         <div class="info-container">
@@ -162,7 +147,7 @@
           </div>
           <div class="info-p-container">
             <p class="title-p">UV index</p>
-            <p class="info-p">0 of 10</p>
+            <p class="info-p"><span data-property="uvindex"></span> of 10</p>
           </div>
         </div>
         <div class="info-container">
@@ -183,7 +168,7 @@
           </div>
           <div class="info-p-container">
             <p class="title-p">Feels Like</p>
-            <p class="info-p">18°</p>
+            <p class="info-p"><span data-property="feelslike"></span> F°</p>
           </div>
         </div>
         <div class="info-container">
@@ -204,7 +189,7 @@
           </div>
           <div class="info-p-container">
             <p class="title-p">Wind</p>
-            <p class="info-p">14 km/h</p>
+            <p class="info-p"><span data-property="windspeed"></span> m/h</p>
           </div>
         </div>
         <div class="info-container">
@@ -225,7 +210,7 @@
           </div>
           <div class="info-p-container">
             <p class="title-p">Precipitation</p>
-            <p class="info-p">0mm</p>
+            <p class="info-p"><span data-property="precipprob"></span>%</p>
           </div>
         </div>
         <div class="info-container">
@@ -245,8 +230,8 @@
             </svg>
           </div>
           <div class="info-p-container">
-            <p class="title-p">Precipitation</p>
-            <p class="info-p">0mm</p>
+            <p class="title-p">Visivility</p>
+            <p class="info-p"><span data-property="visibility"></span> miles</p>
           </div>
         </div>
       </section>

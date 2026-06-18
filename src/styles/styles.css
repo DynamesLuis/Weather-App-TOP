@@ -159,6 +159,10 @@ form {
   font-weight: 700;
 }
 
+.time-title {
+  font-size: 20px;
+}
+
 .place-temp {
   font-size: 60px;
 }
