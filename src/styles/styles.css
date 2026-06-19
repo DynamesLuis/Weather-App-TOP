@@ -246,6 +246,16 @@ form {
   justify-content: space-between;
 }
 
+@media (max-width: 1400px) {
+  .daily-card > div:last-child {
+    flex-direction: column;
+  }
+
+  .daily-card > div:last-child p {
+    margin: 0;
+  }
+}
+
 .card-title {
   font-weight: 400;
 }
