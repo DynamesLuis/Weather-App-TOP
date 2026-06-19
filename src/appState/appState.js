@@ -32,6 +32,7 @@ const getLatitude = () => appState.userInfo.latitude;
 const getLongitude = () => appState.userInfo.longitude;
 const getUserWeather = () => appState.userInfo.weatherData;
 const getUserCurrentWeather = () => appState.userInfo.weatherData.currentConditions;
+const getDays = () => appState.userInfo.weatherData.days;
 
 export {
   setLatitude,
@@ -40,5 +41,6 @@ export {
   getLatitude,
   getLongitude,
   getUserWeather,
-  getUserCurrentWeather
+  getUserCurrentWeather,
+  getDays
 };

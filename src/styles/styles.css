@@ -35,7 +35,7 @@ body {
 
 main {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(3, auto);
   gap: 15px;
 }
@@ -52,24 +52,24 @@ main {
 }
 
 .search-heading {
-  grid-column: span 2 / span 2;
+  grid-column: span 3 / span 3;
 }
 
 .weather-info {
-  grid-column: span 2 / span 2;
+  grid-column: span 3 / span 3;
   grid-column-start: 1;
   grid-row-start: 2;
 }
 
 .daily-forecast {
-  grid-column: span 2 / span 2;
+  grid-column: span 3 / span 3;
   grid-column-start: 1;
   grid-row-start: 3;
 }
 
 .hourly-forecast {
   grid-row: span 3 / span 3;
-  grid-column-start: 3;
+  grid-column-start: 4;
   grid-row-start: 1;
 }
 
@@ -241,13 +241,24 @@ form {
   padding: 15px 20px;
 }
 
-.daily-card > div {
+.daily-card > div:last-child {
   display: flex;
   justify-content: space-between;
 }
 
 .card-title {
   font-weight: 400;
+}
+
+.daily-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & svg {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 .max-temp,
