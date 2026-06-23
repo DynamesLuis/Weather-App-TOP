@@ -1,8 +1,9 @@
 import { getDays } from "../appState/appState";
 import { getDay } from "../utils/date";
+import { renderHourlyForecast } from "./renderHourlyForecast";
 
 function initCustomSelect() {
-  initOptions()
+  initOptions();
   let customSelect, i, j, l, ll, selElmnt, a, b, c;
   /* Look for any elements with the class "custom-select": */
   customSelect = document.getElementsByClassName("custom-select");
@@ -41,12 +42,11 @@ function initCustomSelect() {
               y[k].removeAttribute("class");
             }
             this.setAttribute("class", "same-as-selected");
+            renderHourlyForecast(this.dataset.datetime);
             break;
           }
         }
         h.click();
-        
-        
       });
       b.appendChild(c);
     }
@@ -58,7 +58,6 @@ function initCustomSelect() {
       closeAllSelect(this);
       this.nextSibling.classList.toggle("select-hide");
       this.classList.toggle("select-arrow-active");
-      console.log(this.dataset.datetime);
     });
   }
 }
@@ -92,7 +91,7 @@ function closeAllSelect(elmnt) {
 
 function initOptions() {
   const $select = document.querySelector(".custom-select select");
-  getDays().forEach(day => {
+  getDays().forEach((day) => {
     const $option = document.createElement("option");
     $option.textContent = getDay(day.datetime);
     $option.dataset.datetime = day.datetime;
@@ -100,7 +99,4 @@ function initOptions() {
   });
 }
 
-export {
-    initCustomSelect,
-    closeAllSelect
-}
+export { initCustomSelect, closeAllSelect };
