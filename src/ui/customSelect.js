@@ -1,24 +1,29 @@
+import { getDays } from "../appState/appState";
+import { getDay } from "../utils/date";
+
 function initCustomSelect() {
-  var x, i, j, l, ll, selElmnt, a, b, c;
+  initOptions()
+  let customSelect, i, j, l, ll, selElmnt, a, b, c;
   /* Look for any elements with the class "custom-select": */
-  x = document.getElementsByClassName("custom-select");
-  l = x.length;
+  customSelect = document.getElementsByClassName("custom-select");
+  l = customSelect.length;
   for (i = 0; i < l; i++) {
-    selElmnt = x[i].getElementsByTagName("select")[0];
+    selElmnt = customSelect[i].getElementsByTagName("select")[0];
     ll = selElmnt.length;
     /* For each element, create a new DIV that will act as the selected item: */
     a = document.createElement("DIV");
     a.setAttribute("class", "select-selected");
     a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-    x[i].appendChild(a);
+    customSelect[i].appendChild(a);
     /* For each element, create a new DIV that will contain the option list: */
     b = document.createElement("DIV");
     b.setAttribute("class", "select-items select-hide");
-    for (j = 1; j < ll; j++) {
+    for (j = 0; j < ll; j++) {
       /* For each option in the original select element,
     create a new DIV that will act as an option item: */
       c = document.createElement("DIV");
       c.innerHTML = selElmnt.options[j].innerHTML;
+      c.dataset.datetime = selElmnt.options[j].dataset.datetime;
       c.addEventListener("click", function (e) {
         /* When an item is clicked, update the original select box,
         and the selected item: */
@@ -40,10 +45,12 @@ function initCustomSelect() {
           }
         }
         h.click();
+        
+        
       });
       b.appendChild(c);
     }
-    x[i].appendChild(b);
+    customSelect[i].appendChild(b);
     a.addEventListener("click", function (e) {
       /* When the select box is clicked, close any other select boxes,
     and open/close the current select box: */
@@ -51,6 +58,7 @@ function initCustomSelect() {
       closeAllSelect(this);
       this.nextSibling.classList.toggle("select-hide");
       this.classList.toggle("select-arrow-active");
+      console.log(this.dataset.datetime);
     });
   }
 }
@@ -58,7 +66,7 @@ function initCustomSelect() {
 function closeAllSelect(elmnt) {
   /* A function that will close all select boxes in the document,
   except the current select box: */
-  var x,
+  let x,
     y,
     i,
     xl,
@@ -80,6 +88,16 @@ function closeAllSelect(elmnt) {
       x[i].classList.add("select-hide");
     }
   }
+}
+
+function initOptions() {
+  const $select = document.querySelector(".custom-select select");
+  getDays().forEach(day => {
+    const $option = document.createElement("option");
+    $option.textContent = getDay(day.datetime);
+    $option.dataset.datetime = day.datetime;
+    $select.appendChild($option);
+  });
 }
 
 export {

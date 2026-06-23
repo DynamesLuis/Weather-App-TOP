@@ -1,5 +1,5 @@
-import { getDay } from "../utilis/date";
-import { shortenDayText } from "../utilis/text";
+import { getDay } from "../utils/date";
+import { shortenDayText } from "../utils/text";
 import { weatherIcons } from "./icons";
 
 function renderDaysForecast(days) {

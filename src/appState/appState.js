@@ -1,4 +1,4 @@
-import { formatTime, getDay } from "../utilis/date";
+import { formatTime, getDay } from "../utils/date";
 
 const appState = {
   userInfo: {
@@ -42,5 +42,5 @@ export {
   getLongitude,
   getUserWeather,
   getUserCurrentWeather,
-  getDays
+  getDays,
 };
