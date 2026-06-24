@@ -17,8 +17,8 @@ import { renderHourlyForecast } from "../ui/renderHourlyForecast";
 async function handleDefaultSubmit() {
   try {
     const { latitude, longitude } = await getUserLocation();
-    await fetchDataByLongAndLat(latitude, longitude);
-    //setUserWeather(data);
+    //await fetchDataByLongAndLat(latitude, longitude);
+    setUserWeather(data);
     renderCurrentConditions(getUserCurrentWeather());
     renderDaysForecast(getDays());
     renderHourlyForecast(getDays()[0].datetime);

@@ -7,6 +7,10 @@ function initCustomSelect() {
   let customSelect, i, j, l, ll, selElmnt, a, b, c;
   /* Look for any elements with the class "custom-select": */
   customSelect = document.getElementsByClassName("custom-select");
+  const $seletSelected = document.querySelector(".select-selected");
+  const $seletItems = document.querySelector(".select-items");
+  if ($seletItems) $seletItems.remove();
+  if ($seletSelected) $seletSelected.remove();
   l = customSelect.length;
   for (i = 0; i < l; i++) {
     selElmnt = customSelect[i].getElementsByTagName("select")[0];
