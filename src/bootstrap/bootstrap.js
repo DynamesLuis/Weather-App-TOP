@@ -1,4 +1,4 @@
-import { handleDefaultSubmit } from "../coordinator/coordinator";
+import { handleDefaultSubmit, handleSearchCity } from "../coordinator/coordinator";
 import { closeAllSelect } from "../ui/customSelect";
 
 export default function initApp() {
@@ -7,5 +7,8 @@ export default function initApp() {
 }
 
 function initEvents() {
+  const $form = document.querySelector(".form");
+
   document.addEventListener("click", closeAllSelect);
+  $form.addEventListener("submit", (e) => handleSearchCity(e));
 }

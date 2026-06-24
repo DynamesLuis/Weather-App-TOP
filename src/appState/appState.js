@@ -25,6 +25,7 @@ const setUserWeather = (userWeather) =>
       icon: userWeather.currentConditions.icon,
       lastdatetime: formatTime(userWeather.currentConditions.datetime),
       datetime: getDay(userWeather.days[0].datetime),
+      address: userWeather.address,
     },
     days: userWeather.days.slice(0, 7),
   });

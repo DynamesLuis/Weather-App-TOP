@@ -3,11 +3,7 @@ import { formatTime, getCurrentHour } from "../utils/date";
 import { weatherIcons } from "./icons";
 
 function renderHourlyForecast(datetime) {  
-  const days = getDays();
-  console.log("days:");
-  
-  console.log( days);
-  
+  const days = getDays();  
   
   let actualHours = [];
   console.log(datetime)

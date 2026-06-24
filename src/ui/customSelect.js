@@ -91,6 +91,7 @@ function closeAllSelect(elmnt) {
 
 function initOptions() {
   const $select = document.querySelector(".custom-select select");
+  $select.innerHTML = "";
   getDays().forEach((day) => {
     const $option = document.createElement("option");
     $option.textContent = getDay(day.datetime);
