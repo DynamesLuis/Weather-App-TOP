@@ -10,6 +10,7 @@ import {
   fetchDataByLongAndLat,
 } from "../services/weatherService";
 import { initCustomSelect } from "../ui/customSelect";
+import { showForecast } from "../ui/handleShowing";
 import { renderCurrentConditions } from "../ui/renderCurrentConditions";
 import { renderDaysForecast } from "../ui/renderDaysForecast";
 import { renderHourlyForecast } from "../ui/renderHourlyForecast";
@@ -23,6 +24,7 @@ async function handleDefaultSubmit() {
     renderDaysForecast(getDays());
     renderHourlyForecast(getDays()[0].datetime);
     initCustomSelect();
+    showForecast();
   } catch (error) {
     console.error(error);
   }

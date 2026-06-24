@@ -51,260 +51,269 @@
     </header>
 
     <main>
-      <section class="search-heading">
-        <div class="place-container">
-          <div class="place-icon-container"></div>
+      <div class="spinner hidden"></div>
+      <div class="empty-state">
+        <h2>Search for a city</h2>
+        <p>Enter a city name to view current weather and forecasts.</p>
+      </div>
+      <div class="forecast-container hidden">
+        <section class="search-heading">
+          <div class="place-container">
+            <div class="place-icon-container"></div>
 
-          <p class="place-temp"><span></span> F°</p>
-          <p class="place-city"></p>
-        </div>
+            <p class="place-temp"><span></span> F°</p>
+            <p class="place-city"></p>
+          </div>
 
-        <div class="time-container">
-          <p class="time-title">Latest forecast</p>
-          <p class="time-hour">7:00 PM</p>
-          <p class="time-moment"></p>
-        </div>
-      </section>
-      <section class="weather-info">
-        <div class="info-container">
-          <div class="info-icon-container">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="icon icon-tabler icons-tabler-filled icon-tabler-cloud"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path
-                d="M10.04 4.305c2.195 -.667 4.615 -.224 6.36 1.176c1.386 1.108 2.188 2.686 2.252 4.34l.003 .212l.091 .003c2.3 .107 4.143 1.961 4.25 4.27l.004 .211c0 2.407 -1.885 4.372 -4.255 4.482l-.21 .005h-11.878l-.222 -.008c-2.94 -.11 -5.317 -2.399 -5.43 -5.263l-.005 -.216c0 -2.747 2.08 -5.01 4.784 -5.417l.114 -.016l.07 -.181c.663 -1.62 2.056 -2.906 3.829 -3.518l.244 -.08z"
-              />
-            </svg>
+          <div class="time-container">
+            <p class="time-title">Latest forecast</p>
+            <p class="time-hour">7:00 PM</p>
+            <p class="time-moment"></p>
           </div>
-          <div class="info-p-container">
-            <p class="title-p">Sunrise</p>
-            <p class="info-p"><span data-property="sunrise"></span></p>
-          </div>
-        </div>
-        <div class="info-container">
-          <div class="info-icon-container">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="icon icon-tabler icons-tabler-filled icon-tabler-cloud"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path
-                d="M10.04 4.305c2.195 -.667 4.615 -.224 6.36 1.176c1.386 1.108 2.188 2.686 2.252 4.34l.003 .212l.091 .003c2.3 .107 4.143 1.961 4.25 4.27l.004 .211c0 2.407 -1.885 4.372 -4.255 4.482l-.21 .005h-11.878l-.222 -.008c-2.94 -.11 -5.317 -2.399 -5.43 -5.263l-.005 -.216c0 -2.747 2.08 -5.01 4.784 -5.417l.114 -.016l.07 -.181c.663 -1.62 2.056 -2.906 3.829 -3.518l.244 -.08z"
-              />
-            </svg>
-          </div>
-          <div class="info-p-container">
-            <p class="title-p">Sunset</p>
-            <p class="info-p"><span data-property="sunset"></span></p>
-          </div>
-        </div>
-        <div class="info-container">
-          <div class="info-icon-container">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="icon icon-tabler icons-tabler-filled icon-tabler-cloud"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path
-                d="M10.04 4.305c2.195 -.667 4.615 -.224 6.36 1.176c1.386 1.108 2.188 2.686 2.252 4.34l.003 .212l.091 .003c2.3 .107 4.143 1.961 4.25 4.27l.004 .211c0 2.407 -1.885 4.372 -4.255 4.482l-.21 .005h-11.878l-.222 -.008c-2.94 -.11 -5.317 -2.399 -5.43 -5.263l-.005 -.216c0 -2.747 2.08 -5.01 4.784 -5.417l.114 -.016l.07 -.181c.663 -1.62 2.056 -2.906 3.829 -3.518l.244 -.08z"
-              />
-            </svg>
-          </div>
-          <div class="info-p-container">
-            <p class="title-p">Humidity</p>
-            <p class="info-p"><span data-property="humidity"></span>%</p>
-          </div>
-        </div>
-        <div class="info-container">
-          <div class="info-icon-container">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="icon icon-tabler icons-tabler-filled icon-tabler-cloud"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path
-                d="M10.04 4.305c2.195 -.667 4.615 -.224 6.36 1.176c1.386 1.108 2.188 2.686 2.252 4.34l.003 .212l.091 .003c2.3 .107 4.143 1.961 4.25 4.27l.004 .211c0 2.407 -1.885 4.372 -4.255 4.482l-.21 .005h-11.878l-.222 -.008c-2.94 -.11 -5.317 -2.399 -5.43 -5.263l-.005 -.216c0 -2.747 2.08 -5.01 4.784 -5.417l.114 -.016l.07 -.181c.663 -1.62 2.056 -2.906 3.829 -3.518l.244 -.08z"
-              />
-            </svg>
-          </div>
-          <div class="info-p-container">
-            <p class="title-p">UV index</p>
-            <p class="info-p"><span data-property="uvindex"></span> of 10</p>
-          </div>
-        </div>
-        <div class="info-container">
-          <div class="info-icon-container">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="icon icon-tabler icons-tabler-filled icon-tabler-cloud"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path
-                d="M10.04 4.305c2.195 -.667 4.615 -.224 6.36 1.176c1.386 1.108 2.188 2.686 2.252 4.34l.003 .212l.091 .003c2.3 .107 4.143 1.961 4.25 4.27l.004 .211c0 2.407 -1.885 4.372 -4.255 4.482l-.21 .005h-11.878l-.222 -.008c-2.94 -.11 -5.317 -2.399 -5.43 -5.263l-.005 -.216c0 -2.747 2.08 -5.01 4.784 -5.417l.114 -.016l.07 -.181c.663 -1.62 2.056 -2.906 3.829 -3.518l.244 -.08z"
-              />
-            </svg>
-          </div>
-          <div class="info-p-container">
-            <p class="title-p">Feels Like</p>
-            <p class="info-p"><span data-property="feelslike"></span> F°</p>
-          </div>
-        </div>
-        <div class="info-container">
-          <div class="info-icon-container">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="icon icon-tabler icons-tabler-filled icon-tabler-cloud"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path
-                d="M10.04 4.305c2.195 -.667 4.615 -.224 6.36 1.176c1.386 1.108 2.188 2.686 2.252 4.34l.003 .212l.091 .003c2.3 .107 4.143 1.961 4.25 4.27l.004 .211c0 2.407 -1.885 4.372 -4.255 4.482l-.21 .005h-11.878l-.222 -.008c-2.94 -.11 -5.317 -2.399 -5.43 -5.263l-.005 -.216c0 -2.747 2.08 -5.01 4.784 -5.417l.114 -.016l.07 -.181c.663 -1.62 2.056 -2.906 3.829 -3.518l.244 -.08z"
-              />
-            </svg>
-          </div>
-          <div class="info-p-container">
-            <p class="title-p">Wind</p>
-            <p class="info-p"><span data-property="windspeed"></span> m/h</p>
-          </div>
-        </div>
-        <div class="info-container">
-          <div class="info-icon-container">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="icon icon-tabler icons-tabler-filled icon-tabler-cloud"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path
-                d="M10.04 4.305c2.195 -.667 4.615 -.224 6.36 1.176c1.386 1.108 2.188 2.686 2.252 4.34l.003 .212l.091 .003c2.3 .107 4.143 1.961 4.25 4.27l.004 .211c0 2.407 -1.885 4.372 -4.255 4.482l-.21 .005h-11.878l-.222 -.008c-2.94 -.11 -5.317 -2.399 -5.43 -5.263l-.005 -.216c0 -2.747 2.08 -5.01 4.784 -5.417l.114 -.016l.07 -.181c.663 -1.62 2.056 -2.906 3.829 -3.518l.244 -.08z"
-              />
-            </svg>
-          </div>
-          <div class="info-p-container">
-            <p class="title-p">Precipitation</p>
-            <p class="info-p"><span data-property="precipprob"></span>%</p>
-          </div>
-        </div>
-        <div class="info-container">
-          <div class="info-icon-container">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="icon icon-tabler icons-tabler-filled icon-tabler-cloud"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path
-                d="M10.04 4.305c2.195 -.667 4.615 -.224 6.36 1.176c1.386 1.108 2.188 2.686 2.252 4.34l.003 .212l.091 .003c2.3 .107 4.143 1.961 4.25 4.27l.004 .211c0 2.407 -1.885 4.372 -4.255 4.482l-.21 .005h-11.878l-.222 -.008c-2.94 -.11 -5.317 -2.399 -5.43 -5.263l-.005 -.216c0 -2.747 2.08 -5.01 4.784 -5.417l.114 -.016l.07 -.181c.663 -1.62 2.056 -2.906 3.829 -3.518l.244 -.08z"
-              />
-            </svg>
-          </div>
-          <div class="info-p-container">
-            <p class="title-p">Visivility</p>
-            <p class="info-p"><span data-property="visibility"></span> miles</p>
-          </div>
-        </div>
-      </section>
-      <section class="daily-forecast">
-        <h2>Daily Forecast</h2>
-        <div class="daily-container">
-          <div class="daily-card">
-            <p class="card-title">Tue</p>
-            <div class="daily-icon"></div>
-            <div>
-              <p class="max-temp">20°</p>
-              <p class="min-temp">14°</p>
+        </section>
+        <section class="weather-info">
+          <div class="info-container">
+            <div class="info-icon-container">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="icon icon-tabler icons-tabler-filled icon-tabler-cloud"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M10.04 4.305c2.195 -.667 4.615 -.224 6.36 1.176c1.386 1.108 2.188 2.686 2.252 4.34l.003 .212l.091 .003c2.3 .107 4.143 1.961 4.25 4.27l.004 .211c0 2.407 -1.885 4.372 -4.255 4.482l-.21 .005h-11.878l-.222 -.008c-2.94 -.11 -5.317 -2.399 -5.43 -5.263l-.005 -.216c0 -2.747 2.08 -5.01 4.784 -5.417l.114 -.016l.07 -.181c.663 -1.62 2.056 -2.906 3.829 -3.518l.244 -.08z"
+                />
+              </svg>
+            </div>
+            <div class="info-p-container">
+              <p class="title-p">Sunrise</p>
+              <p class="info-p"><span data-property="sunrise"></span></p>
             </div>
           </div>
-          <div class="daily-card">
-            <p class="card-title">Tue</p>
-            <div class="daily-icon"></div>
-            <div>
-              <p class="max-temp">20°</p>
-              <p class="min-temp">14°</p>
+          <div class="info-container">
+            <div class="info-icon-container">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="icon icon-tabler icons-tabler-filled icon-tabler-cloud"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M10.04 4.305c2.195 -.667 4.615 -.224 6.36 1.176c1.386 1.108 2.188 2.686 2.252 4.34l.003 .212l.091 .003c2.3 .107 4.143 1.961 4.25 4.27l.004 .211c0 2.407 -1.885 4.372 -4.255 4.482l-.21 .005h-11.878l-.222 -.008c-2.94 -.11 -5.317 -2.399 -5.43 -5.263l-.005 -.216c0 -2.747 2.08 -5.01 4.784 -5.417l.114 -.016l.07 -.181c.663 -1.62 2.056 -2.906 3.829 -3.518l.244 -.08z"
+                />
+              </svg>
+            </div>
+            <div class="info-p-container">
+              <p class="title-p">Sunset</p>
+              <p class="info-p"><span data-property="sunset"></span></p>
             </div>
           </div>
-          <div class="daily-card">
-            <p class="card-title">Tue</p>
-            <div class="daily-icon"></div>
-            <div>
-              <p class="max-temp">20°</p>
-              <p class="min-temp">14°</p>
+          <div class="info-container">
+            <div class="info-icon-container">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="icon icon-tabler icons-tabler-filled icon-tabler-cloud"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M10.04 4.305c2.195 -.667 4.615 -.224 6.36 1.176c1.386 1.108 2.188 2.686 2.252 4.34l.003 .212l.091 .003c2.3 .107 4.143 1.961 4.25 4.27l.004 .211c0 2.407 -1.885 4.372 -4.255 4.482l-.21 .005h-11.878l-.222 -.008c-2.94 -.11 -5.317 -2.399 -5.43 -5.263l-.005 -.216c0 -2.747 2.08 -5.01 4.784 -5.417l.114 -.016l.07 -.181c.663 -1.62 2.056 -2.906 3.829 -3.518l.244 -.08z"
+                />
+              </svg>
+            </div>
+            <div class="info-p-container">
+              <p class="title-p">Humidity</p>
+              <p class="info-p"><span data-property="humidity"></span>%</p>
             </div>
           </div>
-          <div class="daily-card">
-            <p class="card-title">Tue</p>
-            <div class="daily-icon"></div>
-            <div>
-              <p class="max-temp">20°</p>
-              <p class="min-temp">14°</p>
+          <div class="info-container">
+            <div class="info-icon-container">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="icon icon-tabler icons-tabler-filled icon-tabler-cloud"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M10.04 4.305c2.195 -.667 4.615 -.224 6.36 1.176c1.386 1.108 2.188 2.686 2.252 4.34l.003 .212l.091 .003c2.3 .107 4.143 1.961 4.25 4.27l.004 .211c0 2.407 -1.885 4.372 -4.255 4.482l-.21 .005h-11.878l-.222 -.008c-2.94 -.11 -5.317 -2.399 -5.43 -5.263l-.005 -.216c0 -2.747 2.08 -5.01 4.784 -5.417l.114 -.016l.07 -.181c.663 -1.62 2.056 -2.906 3.829 -3.518l.244 -.08z"
+                />
+              </svg>
+            </div>
+            <div class="info-p-container">
+              <p class="title-p">UV index</p>
+              <p class="info-p"><span data-property="uvindex"></span> of 10</p>
             </div>
           </div>
-          <div class="daily-card">
-            <p class="card-title">Tue</p>
-            <div class="daily-icon"></div>
-            <div>
-              <p class="max-temp">20°</p>
-              <p class="min-temp">14°</p>
+          <div class="info-container">
+            <div class="info-icon-container">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="icon icon-tabler icons-tabler-filled icon-tabler-cloud"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M10.04 4.305c2.195 -.667 4.615 -.224 6.36 1.176c1.386 1.108 2.188 2.686 2.252 4.34l.003 .212l.091 .003c2.3 .107 4.143 1.961 4.25 4.27l.004 .211c0 2.407 -1.885 4.372 -4.255 4.482l-.21 .005h-11.878l-.222 -.008c-2.94 -.11 -5.317 -2.399 -5.43 -5.263l-.005 -.216c0 -2.747 2.08 -5.01 4.784 -5.417l.114 -.016l.07 -.181c.663 -1.62 2.056 -2.906 3.829 -3.518l.244 -.08z"
+                />
+              </svg>
+            </div>
+            <div class="info-p-container">
+              <p class="title-p">Feels Like</p>
+              <p class="info-p"><span data-property="feelslike"></span> F°</p>
             </div>
           </div>
-          <div class="daily-card">
-            <p class="card-title">Tue</p>
-            <div class="daily-icon"></div>
-            <div>
-              <p class="max-temp">20°</p>
-              <p class="min-temp">14°</p>
+          <div class="info-container">
+            <div class="info-icon-container">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="icon icon-tabler icons-tabler-filled icon-tabler-cloud"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M10.04 4.305c2.195 -.667 4.615 -.224 6.36 1.176c1.386 1.108 2.188 2.686 2.252 4.34l.003 .212l.091 .003c2.3 .107 4.143 1.961 4.25 4.27l.004 .211c0 2.407 -1.885 4.372 -4.255 4.482l-.21 .005h-11.878l-.222 -.008c-2.94 -.11 -5.317 -2.399 -5.43 -5.263l-.005 -.216c0 -2.747 2.08 -5.01 4.784 -5.417l.114 -.016l.07 -.181c.663 -1.62 2.056 -2.906 3.829 -3.518l.244 -.08z"
+                />
+              </svg>
+            </div>
+            <div class="info-p-container">
+              <p class="title-p">Wind</p>
+              <p class="info-p"><span data-property="windspeed"></span> m/h</p>
             </div>
           </div>
-          <div class="daily-card">
-            <p class="card-title">Tue</p>
-            <div class="daily-icon"></div>
-            <div>
-              <p class="max-temp">20°</p>
-              <p class="min-temp">14°</p>
+          <div class="info-container">
+            <div class="info-icon-container">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="icon icon-tabler icons-tabler-filled icon-tabler-cloud"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M10.04 4.305c2.195 -.667 4.615 -.224 6.36 1.176c1.386 1.108 2.188 2.686 2.252 4.34l.003 .212l.091 .003c2.3 .107 4.143 1.961 4.25 4.27l.004 .211c0 2.407 -1.885 4.372 -4.255 4.482l-.21 .005h-11.878l-.222 -.008c-2.94 -.11 -5.317 -2.399 -5.43 -5.263l-.005 -.216c0 -2.747 2.08 -5.01 4.784 -5.417l.114 -.016l.07 -.181c.663 -1.62 2.056 -2.906 3.829 -3.518l.244 -.08z"
+                />
+              </svg>
+            </div>
+            <div class="info-p-container">
+              <p class="title-p">Precipitation</p>
+              <p class="info-p"><span data-property="precipprob"></span>%</p>
             </div>
           </div>
-        </div>
-      </section>
-      <section class="hourly-forecast">
-        <div>
-          <h2>Hourly Forecast</h2>
-          <div class="custom-select">
-            <select name="" id=""></select>
+          <div class="info-container">
+            <div class="info-icon-container">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="icon icon-tabler icons-tabler-filled icon-tabler-cloud"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M10.04 4.305c2.195 -.667 4.615 -.224 6.36 1.176c1.386 1.108 2.188 2.686 2.252 4.34l.003 .212l.091 .003c2.3 .107 4.143 1.961 4.25 4.27l.004 .211c0 2.407 -1.885 4.372 -4.255 4.482l-.21 .005h-11.878l-.222 -.008c-2.94 -.11 -5.317 -2.399 -5.43 -5.263l-.005 -.216c0 -2.747 2.08 -5.01 4.784 -5.417l.114 -.016l.07 -.181c.663 -1.62 2.056 -2.906 3.829 -3.518l.244 -.08z"
+                />
+              </svg>
+            </div>
+            <div class="info-p-container">
+              <p class="title-p">Visivility</p>
+              <p class="info-p">
+                <span data-property="visibility"></span> miles
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="hourly-container"></div>
-      </section>
+        </section>
+        <section class="daily-forecast">
+          <h2>Daily Forecast</h2>
+          <div class="daily-container">
+            <div class="daily-card">
+              <p class="card-title">Tue</p>
+              <div class="daily-icon"></div>
+              <div>
+                <p class="max-temp">20°</p>
+                <p class="min-temp">14°</p>
+              </div>
+            </div>
+            <div class="daily-card">
+              <p class="card-title">Tue</p>
+              <div class="daily-icon"></div>
+              <div>
+                <p class="max-temp">20°</p>
+                <p class="min-temp">14°</p>
+              </div>
+            </div>
+            <div class="daily-card">
+              <p class="card-title">Tue</p>
+              <div class="daily-icon"></div>
+              <div>
+                <p class="max-temp">20°</p>
+                <p class="min-temp">14°</p>
+              </div>
+            </div>
+            <div class="daily-card">
+              <p class="card-title">Tue</p>
+              <div class="daily-icon"></div>
+              <div>
+                <p class="max-temp">20°</p>
+                <p class="min-temp">14°</p>
+              </div>
+            </div>
+            <div class="daily-card">
+              <p class="card-title">Tue</p>
+              <div class="daily-icon"></div>
+              <div>
+                <p class="max-temp">20°</p>
+                <p class="min-temp">14°</p>
+              </div>
+            </div>
+            <div class="daily-card">
+              <p class="card-title">Tue</p>
+              <div class="daily-icon"></div>
+              <div>
+                <p class="max-temp">20°</p>
+                <p class="min-temp">14°</p>
+              </div>
+            </div>
+            <div class="daily-card">
+              <p class="card-title">Tue</p>
+              <div class="daily-icon"></div>
+              <div>
+                <p class="max-temp">20°</p>
+                <p class="min-temp">14°</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="hourly-forecast">
+          <div>
+            <h2>Hourly Forecast</h2>
+            <div class="custom-select">
+              <select name="" id=""></select>
+            </div>
+          </div>
+          <div class="hourly-container"></div>
+        </section>
+      </div>
     </main>
 
     <footer>
