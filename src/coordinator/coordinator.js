@@ -10,7 +10,13 @@ import {
   fetchDataByLongAndLat,
 } from "../services/weatherService";
 import { initCustomSelect } from "../ui/customSelect";
-import { showForecast } from "../ui/handleShowing";
+import {
+  hideEmpty,
+  hideSpinner,
+  showEmpty,
+  showForecast,
+  showSpinner,
+} from "../ui/handleShowing";
 import { renderCurrentConditions } from "../ui/renderCurrentConditions";
 import { renderDaysForecast } from "../ui/renderDaysForecast";
 import { renderHourlyForecast } from "../ui/renderHourlyForecast";
@@ -18,15 +24,19 @@ import { renderHourlyForecast } from "../ui/renderHourlyForecast";
 async function handleDefaultSubmit() {
   try {
     const { latitude, longitude } = await getUserLocation();
-    //await fetchDataByLongAndLat(latitude, longitude);
-    setUserWeather(data);
+    hideEmpty();
+    showSpinner();
+    await fetchDataByLongAndLat(latitude, longitude);
+    //setUserWeather(data);
     renderCurrentConditions(getUserCurrentWeather());
     renderDaysForecast(getDays());
     renderHourlyForecast(getDays()[0].datetime);
     initCustomSelect();
     showForecast();
   } catch (error) {
-    console.error(error);
+    showEmpty();
+  } finally {
+    hideSpinner();
   }
 }
 
@@ -35,13 +45,18 @@ async function handleSearchCity(e) {
     e.preventDefault();
     const city = document.querySelector("#city").value;
     if (city === "") return;
+    hideEmpty();
+    showSpinner();
     await fetchDataByCity(city);
     renderCurrentConditions(getUserCurrentWeather());
     renderDaysForecast(getDays());
     renderHourlyForecast(getDays()[0].datetime);
     initCustomSelect();
+    showForecast();
   } catch (error) {
-    console.log(error);
+    showEmpty();
+  } finally {
+    hideSpinner();
   }
 }
 

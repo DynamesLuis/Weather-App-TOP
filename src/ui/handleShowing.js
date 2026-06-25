@@ -1,8 +1,34 @@
+import { $emptyState, $forecastContainer, $spinner } from "./domSelector";
+
 function showForecast() {
-  const $forecastContainer = document.querySelector(".forecast-container");
-  const $emptyState = document.querySelector(".empty-state");
-  $emptyState.classList.add("hidden");
   $forecastContainer.classList.remove("hidden");
 }
 
-export { showForecast };
+function hideForecast() {
+  $forecastContainer.classList.add("hidden");
+}
+
+function showEmpty() {
+  $emptyState.classList.remove("hidden");
+}
+
+function hideEmpty() {
+  $emptyState.classList.add("hidden");
+}
+
+function showSpinner() {
+  $spinner.classList.remove("hidden");
+}
+
+function hideSpinner() {
+  $spinner.classList.add("hidden");
+}
+
+export {
+  showForecast,
+  hideForecast,
+  showEmpty,
+  hideEmpty,
+  showSpinner,
+  hideSpinner,
+};
