@@ -26,8 +26,8 @@ async function handleDefaultSubmit() {
     const { latitude, longitude } = await getUserLocation();
     hideEmpty();
     showSpinner();
-    await fetchDataByLongAndLat(latitude, longitude);
-    //setUserWeather(data);
+    //await fetchDataByLongAndLat(latitude, longitude);
+    setUserWeather(data);
     renderCurrentConditions(getUserCurrentWeather());
     renderDaysForecast(getDays());
     renderHourlyForecast(getDays()[0].datetime);

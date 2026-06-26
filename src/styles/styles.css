@@ -10,6 +10,12 @@
   --border-little-card: #edf0f5;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 h1,
 h2 {
   font-family: "Space Grotesk", sans-serif;
@@ -37,6 +43,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 20px;
 }
 
 .spinner {
@@ -152,6 +159,7 @@ header {
   display: flex;
   align-items: center;
   gap: 10px;
+  position: relative;
 }
 
 header > button {
@@ -195,6 +203,104 @@ form {
   & svg {
     width: 20px;
   }
+}
+
+.config-menu {
+  z-index: 9999;
+  bottom: -180px;
+  right: 0;
+  position: absolute;
+  width: 335px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08),
+    0 2px 8px rgba(0, 0, 0, 0.05);
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  opacity: 1;
+  transform: translateY(0) scale(1);
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+
+  transform-origin: top right;
+
+  &.hidden {
+    /*display: none;*/
+
+    opacity: 0;
+    transform: translateY(-10px) scale(0.96);
+
+    pointer-events: none;
+  }
+}
+
+.config-menu__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.config-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.config-item span:first-child {
+  font-size: 0.95rem;
+  color: #4b5563;
+}
+
+.config-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 120px;
+  border: none;
+  background: var(--bg-little-card);
+
+  padding: 10px 14px;
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  color: #4b5563;
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  transition: 0.25s;
+}
+
+.config-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.config-btn:hover {
+  background: var(--secundary-color);
+  color: var(--bg-card);
+  & svg {
+    stroke: var(--bg-card);
+  }
+}
+
+.config-btn:active {
+  transform: scale(0.97);
+}
+
+.config-btn:focus-visible {
+  outline: 2px solid var(--secundary-color);
+  outline-offset: 3px;
 }
 
 /*search-heading*/
