@@ -1,6 +1,6 @@
 import { getDays } from "../appState/appState";
 import { getDay } from "../utils/date";
-import { renderHourlyForecast } from "./renderHourlyForecast";
+import { renderHourlyForecast } from "./weather/renderHourlyForecast";
 
 function initCustomSelect() {
   initOptions();

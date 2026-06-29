@@ -9,7 +9,7 @@ async function fetchDataByCity(city) {
     );
     const data = await response.json();
     console.log(data);
-
+    
     setUserWeather(data);
   } catch (error) {
     console.log(error);
@@ -22,6 +22,8 @@ async function fetchDataByLongAndLat(latitude, longitude) {
       `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${latitude},${longitude}?key=${API_KEY}`,
     );
     const data = await response.json();
+    console.log(data);
+    
     setUserWeather(data);
   } catch (error) {
     console.log(error);

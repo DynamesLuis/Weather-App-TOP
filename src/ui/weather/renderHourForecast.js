@@ -1,4 +1,4 @@
-import { getDays } from "../appState/appState";
+import { getDays } from "../../appState/appState";
 import { getDateTime } from "../utilis/date";
 
 function renderHourForecast(day = null) {

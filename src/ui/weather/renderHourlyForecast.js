@@ -1,27 +1,25 @@
-import { getDays } from "../appState/appState";
-import { formatTime, getCurrentHour } from "../utils/date";
-import { weatherIcons } from "./icons";
+import { getDays } from "../../appState/appState";
+import { formatTime, getCurrentHour } from "../../utils/date";
+import { weatherIcons } from "../icons";
+import { getTemperatureForRender } from "./getTemperature";
 
-function renderHourlyForecast(datetime) {  
-  const days = getDays();  
-  
+function renderHourlyForecast(datetime) {
+  const days = getDays();
+
   let actualHours = [];
-  console.log(datetime)
-  console.log(days[0].datetime)
-  console.log(datetime != days[0].datetime);
-  
+
   if (datetime != days[0].datetime) {
-    actualHours = days.find((day) => (day.datetime == datetime)).hours;
+    actualHours = days.find((day) => day.datetime == datetime).hours;
   } else {
     const currentHour = getCurrentHour();
     const hours = days[0].hours;
     const index = hours.findIndex((hour) => hour.datetime > currentHour);
     actualHours = hours.slice(index);
   }
-  
+
   const $hourlyContainer = document.querySelector(".hourly-container");
   $hourlyContainer.innerHTML = "";
-  
+
   actualHours.forEach((hour) => {
     const $hourlyCard = document.createElement("div");
     const $iconContainer = document.createElement("div");
@@ -34,7 +32,7 @@ function renderHourlyForecast(datetime) {
 
     $iconContainer.innerHTML = weatherIcons[hour.icon];
     $pHour.textContent = formatTime(hour.datetime);
-    $pTemp.textContent = `${hour.temp}°`;
+    $pTemp.textContent = `${getTemperatureForRender(hour.temp)}°`;
 
     $hourlyCard.appendChild($iconContainer);
     $hourlyCard.appendChild($pHour);

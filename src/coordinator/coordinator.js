@@ -1,6 +1,8 @@
 import {
   getDays,
   getUserCurrentWeather,
+  getUserWeather,
+  setScaleConfig,
   setUserWeather,
 } from "../appState/appState";
 import { data } from "../data";
@@ -9,6 +11,7 @@ import {
   fetchDataByCity,
   fetchDataByLongAndLat,
 } from "../services/weatherService";
+import { changeUnitsIcons } from "../ui/changeConfigIcons";
 import { initCustomSelect } from "../ui/customSelect";
 import {
   hideEmpty,
@@ -17,13 +20,13 @@ import {
   showForecast,
   showSpinner,
 } from "../ui/handleShowing";
-import { renderCurrentConditions } from "../ui/renderCurrentConditions";
-import { renderDaysForecast } from "../ui/renderDaysForecast";
-import { renderHourlyForecast } from "../ui/renderHourlyForecast";
+import { renderCurrentConditions } from "../ui/weather/renderCurrentConditions";
+import { renderDaysForecast } from "../ui/weather/renderDaysForecast";
+import { renderHourlyForecast } from "../ui/weather/renderHourlyForecast";
 
 async function handleDefaultSubmit() {
   try {
-    const { latitude, longitude } = await getUserLocation();
+    //const { latitude, longitude } = await getUserLocation();
     hideEmpty();
     showSpinner();
     //await fetchDataByLongAndLat(latitude, longitude);
@@ -35,6 +38,7 @@ async function handleDefaultSubmit() {
     showForecast();
   } catch (error) {
     showEmpty();
+    console.log(error);
   } finally {
     hideSpinner();
   }
@@ -47,7 +51,7 @@ async function handleSearchCity(e) {
     if (city === "") return;
     hideEmpty();
     showSpinner();
-    await fetchDataByCity(city);
+    //await fetchDataByCity(city);
     renderCurrentConditions(getUserCurrentWeather());
     renderDaysForecast(getDays());
     renderHourlyForecast(getDays()[0].datetime);
@@ -55,9 +59,25 @@ async function handleSearchCity(e) {
     showForecast();
   } catch (error) {
     showEmpty();
+    console.log(error);
   } finally {
     hideSpinner();
   }
 }
 
-export { handleDefaultSubmit, handleSearchCity };
+function handleChangeTempScale(e) {
+  const scaleToChange = e.currentTarget.dataset.scale;
+  if (scaleToChange === "c") {
+    e.currentTarget.dataset.scale = "f";
+  } else {
+    e.currentTarget.dataset.scale = "c";
+  }
+  setScaleConfig(scaleToChange);
+  changeUnitsIcons();
+  if (Object.keys(getUserWeather()).length === 0) return;
+  renderCurrentConditions(getUserCurrentWeather());
+  renderDaysForecast(getDays());
+  renderHourlyForecast(getDays()[0].datetime);
+}
+
+export { handleDefaultSubmit, handleSearchCity, handleChangeTempScale };

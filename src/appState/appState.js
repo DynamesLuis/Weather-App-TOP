@@ -6,8 +6,10 @@ const appState = {
     longitude: "",
     weatherData: {},
   },
+  scaleConfig: "f",
 };
 
+const setScaleConfig = (scale) => (appState.scaleConfig = scale);
 const setLatitude = (latitude) => (appState.userInfo.latitude = latitude);
 const setLongitude = (longitude) => (appState.userInfo.longitude = longitude);
 const setUserWeather = (userWeather) =>
@@ -29,13 +31,16 @@ const setUserWeather = (userWeather) =>
     },
     days: userWeather.days.slice(0, 7),
   });
+const getScaleConfig = () => appState.scaleConfig;
 const getLatitude = () => appState.userInfo.latitude;
 const getLongitude = () => appState.userInfo.longitude;
 const getUserWeather = () => appState.userInfo.weatherData;
-const getUserCurrentWeather = () => appState.userInfo.weatherData.currentConditions;
+const getUserCurrentWeather = () =>
+  appState.userInfo.weatherData.currentConditions;
 const getDays = () => appState.userInfo.weatherData.days;
 
 export {
+  setScaleConfig,
   setLatitude,
   setLongitude,
   setUserWeather,
@@ -44,4 +49,5 @@ export {
   getUserWeather,
   getUserCurrentWeather,
   getDays,
+  getScaleConfig,
 };

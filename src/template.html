@@ -52,11 +52,35 @@
         <h3 class="config-menu__title">Settings</h3>
 
         <div class="config-item">
-          <span>Temperature</span>
-
-          <button class="config-btn temp-scale-btn">
-            <svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-temperature-celsius"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 8a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M20 9a3 3 0 0 0 -3 -3h-1a3 3 0 0 0 -3 3v6a3 3 0 0 0 3 3h1a3 3 0 0 0 3 -3" /></svg></svg>
-            <span>Celcius</span>
+          <span>Units</span>
+          <button class="config-btn temp-scale-btn" data-scale="c">
+            <span></span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-ruler-measure"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path
+                d="M19.875 12c.621 0 1.125 .512 1.125 1.143v5.714c0 .631 -.504 1.143 -1.125 1.143h-15.875a1 1 0 0 1 -1 -1v-5.857c0 -.631 .504 -1.143 1.125 -1.143h15.75"
+              />
+              <path d="M9 12v2" />
+              <path d="M6 12v3" />
+              <path d="M12 12v3" />
+              <path d="M18 12v3" />
+              <path d="M15 12v2" />
+              <path d="M3 3v4" />
+              <path d="M3 5h18" />
+              <path d="M21 3v4" />
+            </svg>
+            <span>°C / km</span>
           </button>
         </div>
 
@@ -94,7 +118,7 @@
           <div class="place-container">
             <div class="place-icon-container"></div>
 
-            <p class="place-temp"><span></span> F°</p>
+            <p class="place-temp"><span></span></p>
             <p class="place-city"></p>
           </div>
 
@@ -229,7 +253,7 @@
             </div>
             <div class="info-p-container">
               <p class="title-p">Feels Like</p>
-              <p class="info-p"><span data-property="feelslike"></span> F°</p>
+              <p class="info-p"><span data-property="feelslike"></span></p>
             </div>
           </div>
           <div class="info-container">
@@ -254,7 +278,7 @@
             </div>
             <div class="info-p-container">
               <p class="title-p">Wind</p>
-              <p class="info-p"><span data-property="windspeed"></span> m/h</p>
+              <p class="info-p"><span data-property="windspeed"></span></p>
             </div>
           </div>
           <div class="info-container">
@@ -305,7 +329,7 @@
             <div class="info-p-container">
               <p class="title-p">Visivility</p>
               <p class="info-p">
-                <span data-property="visibility"></span> miles
+                <span data-property="visibility"></span>
               </p>
             </div>
           </div>
