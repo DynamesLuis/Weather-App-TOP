@@ -308,7 +308,6 @@ form {
   height: 100%;
   display: flex;
   justify-content: space-between;
-  background-image: url("../img/sunset.jpg");
   background-size: cover;
   background-position: center;
   color: #fff;
@@ -317,6 +316,22 @@ form {
     width: 35px;
     height: 35px;
   }
+}
+
+.search-heading.morning {
+  background-image: url("../img//morning.png");
+}
+
+.search-heading.day {
+  background-image: url("../img/day.jpeg");
+}
+
+.search-heading.sunset {
+  background-image: url("../img/sunset.jpg");
+}
+
+.search-heading.night {
+  background-image: url("../img/night.jpg");
 }
 
 .place-container,

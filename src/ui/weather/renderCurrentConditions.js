@@ -1,9 +1,13 @@
 import { getScaleConfig } from "../../appState/appState";
 import { weatherIcons } from "../icons";
+import { getBgImg } from "./getBgImg";
 import { getDistanceForRender } from "./getDistanceForRender";
 import { getTemperatureForRender } from "./getTemperature";
 
 function renderCurrentConditions(currentWeather) {
+  document
+    .querySelector(".search-heading")
+    .classList.add(getBgImg(currentWeather.lastdatetime));
   document.querySelector(".place-temp span").textContent =
     `${getTemperatureForRender(currentWeather.temp)} ${getScaleConfig().toUpperCase()}°`;
   document.querySelector(".place-icon-container").innerHTML =
