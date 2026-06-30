@@ -111,7 +111,7 @@ main {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(3, auto);
   gap: 15px;
-  height: 130dvh;
+  height: 120dvh;
 
   &.hidden {
     display: none;
@@ -190,7 +190,7 @@ form {
   & button {
     position: absolute;
     top: 50%;
-    left: 2px;
+    left: 10px;
     transform: translateY(-50%);
     background: transparent;
     border: none;
@@ -305,7 +305,7 @@ form {
 
 /*search-heading*/
 .search-heading {
-  height: 250px;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   background-image: url("../img/sunset.jpg");
@@ -408,8 +408,10 @@ form {
 
 /*Daily forecast*/
 .daily-container {
+  margin-top: 10px;
   display: flex;
   gap: 10px;
+  height: 150px;
 }
 
 .daily-card {
@@ -419,6 +421,9 @@ form {
   text-align: center;
   border-radius: 10px;
   padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .daily-card > div:last-child {
@@ -541,6 +546,7 @@ form {
 }
 
 .hourly-container {
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -577,6 +583,7 @@ footer {
   text-align: center;
   color: var(--secundary-color);
   text-align: center;
+  padding-top: 20px;
 }
 
 .design-credit a {
