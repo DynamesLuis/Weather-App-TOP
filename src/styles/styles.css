@@ -301,15 +301,15 @@ form {
   fill: var(--secundary-color);
 }
 
-.icon-tabler-sun {
+.config-btn .icon-tabler-sun {
   display: none;
 }
 
-.dark .icon-tabler-moon {
+.dark .config-btn .icon-tabler-moon {
   display: none;
 }
 
-.dark .icon-tabler-sun {
+.dark .config-btn .icon-tabler-sun {
   display: block;
 }
 

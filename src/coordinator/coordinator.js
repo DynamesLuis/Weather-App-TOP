@@ -26,11 +26,10 @@ import { renderHourlyForecast } from "../ui/weather/renderHourlyForecast";
 
 async function handleDefaultSubmit() {
   try {
-    //const { latitude, longitude } = await getUserLocation();
+    const { latitude, longitude } = await getUserLocation();
     hideEmpty();
     showSpinner();
-    //await fetchDataByLongAndLat(latitude, longitude);
-    setUserWeather(data);
+    await fetchDataByLongAndLat(latitude, longitude);
     renderCurrentConditions(getUserCurrentWeather());
     renderDaysForecast(getDays());
     renderHourlyForecast(getDays()[0].datetime);
@@ -51,7 +50,7 @@ async function handleSearchCity(e) {
     if (city === "") return;
     hideEmpty();
     showSpinner();
-    //await fetchDataByCity(city);
+    await fetchDataByCity(city);
     renderCurrentConditions(getUserCurrentWeather());
     renderDaysForecast(getDays());
     renderHourlyForecast(getDays()[0].datetime);
@@ -61,6 +60,7 @@ async function handleSearchCity(e) {
     showEmpty();
     console.log(error);
   } finally {
+    document.querySelector("#city").value = "";
     hideSpinner();
   }
 }
