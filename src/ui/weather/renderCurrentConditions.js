@@ -5,9 +5,9 @@ import { getDistanceForRender } from "./getDistanceForRender";
 import { getTemperatureForRender } from "./getTemperature";
 
 function renderCurrentConditions(currentWeather) {
-  document
-    .querySelector(".search-heading")
-    .classList.add(getBgImg(currentWeather.lastdatetime));
+  const $searchHeading = document.querySelector(".search-heading");
+  $searchHeading.classList.remove("morning", "day", "sunset", "night");
+  $searchHeading.classList.add(getBgImg(currentWeather.lastdatetime));
   document.querySelector(".place-temp span").textContent =
     `${getTemperatureForRender(currentWeather.temp)} ${getScaleConfig().toUpperCase()}°`;
   document.querySelector(".place-icon-container").innerHTML =

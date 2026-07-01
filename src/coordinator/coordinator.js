@@ -15,6 +15,7 @@ import { changeUnitsIcons } from "../ui/changeConfigIcons";
 import { initCustomSelect } from "../ui/customSelect";
 import {
   hideEmpty,
+  hideForecast,
   hideSpinner,
   showEmpty,
   showForecast,
@@ -49,6 +50,7 @@ async function handleSearchCity(e) {
     const city = document.querySelector("#city").value;
     if (city === "") return;
     hideEmpty();
+    hideForecast();
     showSpinner();
     await fetchDataByCity(city);
     renderCurrentConditions(getUserCurrentWeather());
