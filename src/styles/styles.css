@@ -301,6 +301,18 @@ form {
   fill: var(--secundary-color);
 }
 
+.icon-tabler-sun {
+  display: none;
+}
+
+.dark .icon-tabler-moon {
+  display: none;
+}
+
+.dark .icon-tabler-sun {
+  display: block;
+}
+
 .config-btn:hover {
   background: var(--secundary-color);
   color: var(--bg-card);

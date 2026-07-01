@@ -1,6 +1,19 @@
+import { $menu } from "./domSelector";
+
 function handleMenu() {
-  const $menu = document.querySelector(".config-menu");
-  $menu.classList.toggle("hidden");
+  if ($menu.classList.contains("hidden")) {
+    openMenu();
+  } else {
+    closeMenú();
+  }
 }
 
-export { handleMenu };
+function closeMenú() {
+  $menu.classList.add("hidden");
+}
+
+function openMenu() {
+  $menu.classList.remove("hidden");
+}
+
+export { handleMenu, closeMenú };

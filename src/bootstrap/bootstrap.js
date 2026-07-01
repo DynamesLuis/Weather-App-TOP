@@ -4,7 +4,8 @@ import {
   handleSearchCity,
 } from "../coordinator/coordinator";
 import { closeAllSelect } from "../ui/customSelect";
-import { handleMenu } from "../ui/handleMenu";
+import { $menu, $menuBtn } from "../ui/domSelector";
+import { closeMenú, handleMenu } from "../ui/handleMenu";
 import { switchTheme } from "../ui/switchTheme";
 
 export default function initApp() {
@@ -14,13 +15,19 @@ export default function initApp() {
 
 function initEvents() {
   const $form = document.querySelector(".form");
-  const $menuBtn = document.querySelector(".menu-btn");
   const $TempScaleBtn = document.querySelector(".temp-scale-btn");
   const $themeBtn = document.querySelector(".theme-btn");
 
-  document.addEventListener("click", closeAllSelect);
+  document.addEventListener("click", (e) => {
+    console.log(!$menu.contains(e.target));
+    console.log(e.target)
+    if (!$menuBtn.contains(e.target) && !$menu.contains(e.target)) {
+      closeAllSelect();
+      closeMenú();
+    }
+  });
   $form.addEventListener("submit", (e) => handleSearchCity(e));
-  $menuBtn.addEventListener("click", handleMenu);
+  $menuBtn.addEventListener("click", (e) => handleMenu(e));
   $TempScaleBtn.addEventListener("click", (e) => handleChangeTempScale(e));
   $themeBtn.addEventListener("click", switchTheme);
 }
