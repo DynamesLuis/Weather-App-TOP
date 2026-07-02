@@ -30,4 +30,8 @@ function getCurrentHour() {
   return `${hours}:${minutes}:${seconds}`;
 }
 
-export { getDay, formatTime, getCurrentHour };
+function getHour(datetime24) {
+  return Number(datetime24.split(":")[0]);
+}
+
+export { getDay, formatTime, getCurrentHour, getHour };

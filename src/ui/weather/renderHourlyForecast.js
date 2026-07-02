@@ -1,5 +1,5 @@
-import { getDays } from "../../appState/appState";
-import { formatTime, getCurrentHour } from "../../utils/date";
+import { getDays, getLastdatetime24 } from "../../appState/appState";
+import { formatTime, getHour } from "../../utils/date";
 import { weatherIcons } from "../icons";
 import { getTemperatureForRender } from "./getTemperature";
 
@@ -8,13 +8,24 @@ function renderHourlyForecast(datetime) {
 
   let actualHours = [];
 
-  if (datetime != days[0].datetime) {
-    actualHours = days.find((day) => day.datetime == datetime).hours;
+  // if (datetime != days[0].datetime) {
+  //   actualHours = days.find((day) => day.datetime == datetime).hours;
+  // } else {
+  //   const currentHour = getCurrentHour();
+  //   const hours = days[0].hours;
+  //   const index = hours.findIndex((hour) => hour.datetime > currentHour);
+  //   actualHours = hours.slice(index);
+  // }
+  const selectedDay = days.find((day) => day.datetime === datetime);
+
+  if (datetime !== days[0].datetime) {
+    actualHours = selectedDay.hours;
   } else {
-    const currentHour = getCurrentHour();
-    const hours = days[0].hours;
-    const index = hours.findIndex((hour) => hour.datetime > currentHour);
-    actualHours = hours.slice(index);
+    const currentHour = getHour(getLastdatetime24());
+    const index = selectedDay.hours.findIndex((hour) => {
+      return getHour(hour.datetime) >= currentHour;
+    });
+    actualHours = selectedDay.hours.slice(index);
   }
 
   const $hourlyContainer = document.querySelector(".hourly-container");

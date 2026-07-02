@@ -19,8 +19,6 @@ function initEvents() {
   const $themeBtn = document.querySelector(".theme-btn");
 
   document.addEventListener("click", (e) => {
-    console.log(!$menu.contains(e.target));
-    console.log(e.target)
     if (!$menuBtn.contains(e.target) && !$menu.contains(e.target)) {
       closeAllSelect();
       closeMenú();

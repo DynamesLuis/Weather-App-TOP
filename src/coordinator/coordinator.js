@@ -4,6 +4,7 @@ import {
   getUserWeather,
   setScaleConfig,
   setUserWeather,
+  setWatherSource,
 } from "../appState/appState";
 import { data } from "../data";
 import { getUserLocation } from "../services/userLocationService";
@@ -30,6 +31,7 @@ async function handleDefaultSubmit() {
     const { latitude, longitude } = await getUserLocation();
     hideEmpty();
     showSpinner();
+    setWatherSource("user");
     await fetchDataByLongAndLat(latitude, longitude);
     renderCurrentConditions(getUserCurrentWeather());
     renderDaysForecast(getDays());
@@ -52,6 +54,7 @@ async function handleSearchCity(e) {
     hideEmpty();
     hideForecast();
     showSpinner();
+    setWatherSource("search");
     await fetchDataByCity(city);
     renderCurrentConditions(getUserCurrentWeather());
     renderDaysForecast(getDays());
